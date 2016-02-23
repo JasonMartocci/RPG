@@ -1,3 +1,27 @@
 body {
 	background-color: grey;
 }
+.wrapper{
+  position: relative;
+	width: 90%;
+	margin: 0 auto;
+}
+.character{
+	border:2px solid green;
+	width:150px;
+	height:150px;
+	float:left;
+}
+#good{
+	border:2px solid black;
+	background-color: white;
+	width: 500px;
+	height: 200px;
+}
+#evil{
+	border:2px solid white;
+	background-color: black;
+	color: white;
+	width: 500px;
+	height: 200px;
+}

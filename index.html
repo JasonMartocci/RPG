@@ -6,8 +6,30 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">  
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 </head>
 <body>
+<div class="wrapper">
+	<div class="container">
+		<div id="character">
+			<script type="text/javascript">
+				function moveButton(elem){
+				    if( $(elem).parent().attr("id") == "evil" ){
+				        $(elem).detach().appendTo('#good');
+				    }
+				    else{
+				        $(elem).detach().appendTo('#evil'); 
+				    }
+				}
+			</script	   
+		</div>
+		<div id="good">
 
+		</div>
+		<div id="evil">
+
+		</div>
+	</div>
+</div>
 </body>
 </html>
