@@ -11,7 +11,7 @@ var characters = [
     {
 		name: "Sunflower",
 		picture: 'http://vignette4.wikia.nocookie.net/plantsvszombies/images/e/e2/Sunflower1.png/revision/latest?cb=20090521221033',
-		hitPoints: 100,
+		hitPoints: 110,
 		alive: true, 
 		attackPower: 25,
 		defaultPower: 6,
@@ -20,7 +20,7 @@ var characters = [
     {
 		name: "Cherry-Bomb",
 		picture: 'http://vignette2.wikia.nocookie.net/plantsvszombies/images/0/0d/Cherry_Bomb1.png/revision/latest?cb=20090521215844',
-		hitPoints: 100,
+		hitPoints: 120,
 		alive: true, 
 		attackPower: 25,
 		defaultPower: 6,
@@ -29,7 +29,7 @@ var characters = [
     {
 		name: "Chomper",
 		picture: 'http://vignette2.wikia.nocookie.net/plantsvszombies/images/a/a3/Chomper1.png/revision/latest?cb=20090521220057',
-		hitPoints: 100,
+		hitPoints: 130,
 		alive: true, 
 		attackPower: 25,
 		defaultPower: 6,
@@ -38,7 +38,7 @@ var characters = [
     {
 		name: "Kernel-pult",
 		picture: 'http://vignette4.wikia.nocookie.net/plantsvszombies/images/c/c4/Kernel-pult1.png/revision/latest?cb=20090521220358',
-		hitPoints: 100,
+		hitPoints: 140,
 		alive: true, 
 		attackPower: 25,
 		defaultPower: 6,
@@ -68,9 +68,10 @@ $(document).ready(function(){
 		//5. use the setAttribute function on the newCharacterDiv variable and set the class of it to character
 		newCharacterDiv.setAttribute('class', 'character');
 		newCharacterDiv.setAttribute('data-name', characters[i].name);
+		newCharacterDiv.setAttribute('hitPoints', characters[i].hitPoints);
 		newCharacterDiv.setAttribute('onclick', 'moveButton(this)');
 		var html = "<p>" + characters[i].name + "</p>"
-		html = html + "<p><img width=\"100\" src=\"" + characters[i].picture + "\" alt=\" + " + characters[i].name + " + \" />"
+		html = html + "<p><img width=\"100\" src=\"" + characters[i].picture + "\" alt=\""+characters[i].name+"\" />"
 		html = html + "<p>Hit Points: " + characters[i].hitPoints + "</p>";
 
 		//6. set the innerHTML of the newCharacterDiv to html
@@ -78,29 +79,48 @@ $(document).ready(function(){
 
 		//7. add the newCharacterDiv to the character
 		character.appendChild(newCharacterDiv);
-
-		}
+	}
 });
 
- var good = false;
+var good = false;
 
-    function moveButton(elem) {
-      if ($(elem).parent().attr("id") == "menu" && !good) {
-        $(elem).detach().appendTo('#good');
-      } else if ($(elem).parent().attr("id") == "evil") {
-        $(elem).detach().appendTo('#enemy');
-      } else {
-        $(elem).detach().appendTo('#evil');
-      }
-      
-      $("#menu").find(".character").detach().appendTo('#evil');
-      
-      good = true;
-    }
+function moveButton(elem) {
+	if ($(elem).parent().attr("id") == "menu" && !good) {
+		$(elem).detach().appendTo('#good');
+	} else if ($(elem).parent().attr("id") == "evil") {
+		$(elem).detach().appendTo('#enemy');
 
-function fightButton(elem) {
-	characters[enemyChar].hitPoints -= characters[yourChar].attackPower;
-	alert(enemyChar);
+	//enemyChar.push(data-name);
+
+	} else {
+		$(elem).detach().appendTo('#evil');
+	}
+
+	$("#menu").find(".character").detach().appendTo('#evil');
+
+	good = true;
+}
+
+
+function attackButton(elem) {
+	// characters[enemyChar].hitPoints -= characters[yourChar].attackPower;
+	// var element = $('#good');
+	// alert(element.attr('id'));
+
+	var good = $( ".character" );
+	var goodFighter = $( "#good" );
+	alert(goodFighter.eq(0).text());
+
+
+
+	// $( "#good" );
+	// $( ".character" );
+	// $( "data-name" );
+	// var myDivElement = $( "#good" );
+	// var myValue = $( "data-name" ).val();
+
+
+	
 }
 
 // The player will now be able to hit the attack button to fight against that defender.
