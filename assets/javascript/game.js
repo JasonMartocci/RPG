@@ -94,6 +94,11 @@ var good = false;
 function moveButton(elem) {
 	if ($(elem).parent().attr("id") == "menu" && !good) {
 		$(elem).detach().appendTo('#good');
+
+		// $('.character').each(function() {
+		//     $(this).attr("id", $(this).attr("id") + "yourChar");
+		// });
+
 	} else if ($(elem).parent().attr("id") == "evil") {
 		$(elem).detach().appendTo('#enemy');
 
@@ -121,10 +126,6 @@ function attackButton(elem) {
 			alert('your coding is wrong');
 		}
 			// characters[enemyChar].hitPoints -= characters[yourChar].attackPower;
-
-
-		// var enemyFighter = $( "#enemy" );
-		// console.log(characters[i].hitPoints);
 	}
 }
 
