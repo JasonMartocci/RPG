@@ -57,35 +57,34 @@ var yourChar = "";
 var enemyChar = "";  
 
 $(document).ready(function(){
-	// 1. create a new div element and put it into a variable named character
+	// create a new div element and put it into a variable named character
 	var character = document.createElement('div');
 
-	// 2. use the setAttribute function on the character variable and set the id of it to menu
+	// use the setAttribute function on the character variable and set the id of it to menu
 	character.setAttribute('id', 'menu');
 
-	// 3. add the character to the page with the appendChild function
+	// add the character to the page with the appendChild function
 	document.body.appendChild(character);
 
 		for (var i = 0; i < characters.length; i++) {
+			// create a div and store it inside a variable named newCharacterDiv
+			var newCharacterDiv = document.createElement('div');
 
-		//4. create a div and store it inside a variable named newCharacterDiv
-		var newCharacterDiv = document.createElement('div');
+			// use the setAttribute function on the newCharacterDiv variable and set the class of it to character
+			newCharacterDiv.setAttribute('class', 'character');
+			newCharacterDiv.setAttribute('data-name', characters[i].name);
+			newCharacterDiv.setAttribute('hitPoints', characters[i].hitPoints);
+			newCharacterDiv.setAttribute('onclick', 'moveButton(this)');
+			var html = "<p>" + characters[i].name + "</p>"
+			html = html + "<p><img width=\"100\" src=\"" + characters[i].picture + "\" alt=\""+characters[i].name+"\" />"
+			html = html + "<p>Hit Points: " + characters[i].hitPoints + "</p>";
 
-		//5. use the setAttribute function on the newCharacterDiv variable and set the class of it to character
-		newCharacterDiv.setAttribute('class', 'character');
-		newCharacterDiv.setAttribute('data-name', characters[i].name);
-		newCharacterDiv.setAttribute('hitPoints', characters[i].hitPoints);
-		newCharacterDiv.setAttribute('onclick', 'moveButton(this)');
-		var html = "<p>" + characters[i].name + "</p>"
-		html = html + "<p><img width=\"100\" src=\"" + characters[i].picture + "\" alt=\""+characters[i].name+"\" />"
-		html = html + "<p>Hit Points: " + characters[i].hitPoints + "</p>";
+			// set the innerHTML of the newCharacterDiv to html
+			newCharacterDiv.innerHTML = html;
 
-		//6. set the innerHTML of the newCharacterDiv to html
-		newCharacterDiv.innerHTML = html;
-
-		//7. add the newCharacterDiv to the character
-		character.appendChild(newCharacterDiv);
-	}
+			// add the newCharacterDiv to the character
+			character.appendChild(newCharacterDiv);
+		}
 });
 
 
@@ -112,21 +111,17 @@ function moveButton(elem) {
 
 // This is the attack button function
 function attackButton(elem) {
-	// characters[enemyChar].hitPoints -= characters[yourChar].attackPower;
-	// var element = $('#good');
-	// alert(element.attr('id'));
 
-	var goodFighter = $( "#good" );
-	console.log(goodFighter.eq(0).text());
+	for (var i = 0; i < characters.length; i++) {
+		if ($(elem).parent().attr("id") == "good"){
+			console.log(characters[i].hitPoints);
+		}
+			// characters[enemyChar].hitPoints -= characters[yourChar].attackPower;
 
-	var enemyFighter = $( "#enemy" );
-	console.log(enemyFighter.eq(0).text());
 
-	// $( "#good" );
-	// $( ".character" );
-	// $( "data-name" );
-	// var myDivElement = $( "#good" );
-	// var myValue = $( "data-name" ).val();	
+		// var enemyFighter = $( "#enemy" );
+		// console.log(characters[i].hitPoints);
+	}
 }
 
 // The player will now be able to hit the attack button to fight against that defender.
