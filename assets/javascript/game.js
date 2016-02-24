@@ -10,7 +10,7 @@ var characters = [
       hitPoints: 3.15
     }, 
     {
-      name: "Cherry Bomb",
+      name: "Cherry-Bomb",
       picture: 'http://vignette2.wikia.nocookie.net/plantsvszombies/images/0/0d/Cherry_Bomb1.png/revision/latest?cb=20090521215844',
       hitPoints: 2.79
     }, 
@@ -25,7 +25,12 @@ var characters = [
       hitPoints: 1.55
     }
   ];
-window.onload = function() {
+
+var names = ['Peashooter', 'Sunflower', 'Cherry-Bomb', 'Chomper', 'Kernel-pult'];
+var yourChar = "";    
+var enemyChar = "";  
+
+$(document).ready(function(){
 		// 1. create a new div element and put it into a variable named character
 		var character = document.createElement('div');
 
@@ -41,8 +46,8 @@ window.onload = function() {
 
 		//5. use the setAttribute function on the newCharacterDiv variable and set the class of it to character
 		newCharacterDiv.setAttribute('class', 'character');
-		newCharacterDiv.setAttribute('onclick', 'moveButton(this)');
 		newCharacterDiv.setAttribute('data-name', characters[i].name);
+		newCharacterDiv.setAttribute('onclick', 'moveButton(this)');
 		var html = "<p>" + characters[i].name + "</p>"
 		html = html + "<p><img width=\"100\" src=\"" + characters[i].picture + "\" alt=\" + " + characters[i].name + " + \" />"
 		html = html + "<p>Hit Points: " + characters[i].hitPoints + "</p>";
@@ -52,11 +57,26 @@ window.onload = function() {
 
 		//7. add the newCharacterDiv to the character
 		character.appendChild(newCharacterDiv);
-	};
 
-};
+	}
 
-// Every character that was not picked is now an enemy that the player must defeat. Enemies should be moved to a different area of the screen.
+});
+
+ var good = false;
+
+    function moveButton(elem) {
+      if ($(elem).parent().attr("id") == "menu" && !good) {
+        $(elem).detach().appendTo('#good');
+      } else if ($(elem).parent().attr("id") == "evil") {
+        $(elem).detach().appendTo('#enemy');
+      } else {
+        $(elem).detach().appendTo('#evil');
+      }
+      
+      $("#menu").find(".character").detach().appendTo('#evil');
+      
+      good = true;
+    }
 
 // The player chooses which enemy they will attack by clicking on that enemy's picture.
 
