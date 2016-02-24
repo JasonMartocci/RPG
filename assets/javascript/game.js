@@ -5,8 +5,7 @@ var characters = [
 		hitPoints: 100,
 		alive: true, 
 		attackPower: 25,
-		defaultPower: 6,
-		counterPwer: 6
+		counterPower: 6
     }, 
     {
 		name: "Sunflower",
@@ -14,8 +13,7 @@ var characters = [
 		hitPoints: 110,
 		alive: true, 
 		attackPower: 25,
-		defaultPower: 6,
-		counterPwer: 6
+		counterPower: 6
     }, 
     {
 		name: "Cherry-Bomb",
@@ -23,8 +21,7 @@ var characters = [
 		hitPoints: 120,
 		alive: true, 
 		attackPower: 25,
-		defaultPower: 6,
-		counterPwer: 6
+		counterPower: 6
     }, 
     {
 		name: "Chomper",
@@ -32,8 +29,7 @@ var characters = [
 		hitPoints: 130,
 		alive: true, 
 		attackPower: 25,
-		defaultPower: 6,
-		counterPwer: 6
+		counterPower: 6
     }, 
     {
 		name: "Kernel-pult",
@@ -41,10 +37,20 @@ var characters = [
 		hitPoints: 140,
 		alive: true, 
 		attackPower: 25,
-		defaultPower: 6,
-		counterPwer: 6
+		counterPower: 6
     }
   ];
+
+var points = {
+		hitPoints : 0,
+		attackPower : 0,
+		newPower : 0,
+		healthOpponent : 0,
+		counterPower : 0,	
+		selectCounter : 0,
+		opponentNow : false,
+		winCounter : 0,
+}
 
 var names = ['Peashooter', 'Sunflower', 'Cherry-Bomb', 'Chomper', 'Kernel-pult'];
 var yourChar = "";    
@@ -82,6 +88,8 @@ $(document).ready(function(){
 	}
 });
 
+
+// This is the move characters and setup gameplay function
 var good = false;
 
 function moveButton(elem) {
@@ -102,25 +110,23 @@ function moveButton(elem) {
 }
 
 
+// This is the attack button function
 function attackButton(elem) {
 	// characters[enemyChar].hitPoints -= characters[yourChar].attackPower;
 	// var element = $('#good');
 	// alert(element.attr('id'));
 
-	var good = $( ".character" );
 	var goodFighter = $( "#good" );
-	alert(goodFighter.eq(0).text());
+	console.log(goodFighter.eq(0).text());
 
-
+	var enemyFighter = $( "#enemy" );
+	console.log(enemyFighter.eq(0).text());
 
 	// $( "#good" );
 	// $( ".character" );
 	// $( "data-name" );
 	// var myDivElement = $( "#good" );
-	// var myValue = $( "data-name" ).val();
-
-
-	
+	// var myValue = $( "data-name" ).val();	
 }
 
 // The player will now be able to hit the attack button to fight against that defender.
