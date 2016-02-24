@@ -1,28 +1,48 @@
 var characters = [
     {
-      name: 'Peashooter',
-      picture: 'http://vignette3.wikia.nocookie.net/plantsvszombies/images/8/85/Peashooter1.png/revision/latest?cb=20111029120055',
-      hitPoints: 2.30
+		name: 'Peashooter',
+		picture: 'http://vignette3.wikia.nocookie.net/plantsvszombies/images/8/85/Peashooter1.png/revision/latest?cb=20111029120055',
+		hitPoints: 100,
+		alive: true, 
+		attackPower: 25,
+		defaultPower: 6,
+		counterPwer: 6
     }, 
     {
-      name: "Sunflower",
-      picture: 'http://vignette4.wikia.nocookie.net/plantsvszombies/images/e/e2/Sunflower1.png/revision/latest?cb=20090521221033',
-      hitPoints: 3.15
+		name: "Sunflower",
+		picture: 'http://vignette4.wikia.nocookie.net/plantsvszombies/images/e/e2/Sunflower1.png/revision/latest?cb=20090521221033',
+		hitPoints: 100,
+		alive: true, 
+		attackPower: 25,
+		defaultPower: 6,
+		counterPwer: 6
     }, 
     {
-      name: "Cherry-Bomb",
-      picture: 'http://vignette2.wikia.nocookie.net/plantsvszombies/images/0/0d/Cherry_Bomb1.png/revision/latest?cb=20090521215844',
-      hitPoints: 2.79
+		name: "Cherry-Bomb",
+		picture: 'http://vignette2.wikia.nocookie.net/plantsvszombies/images/0/0d/Cherry_Bomb1.png/revision/latest?cb=20090521215844',
+		hitPoints: 100,
+		alive: true, 
+		attackPower: 25,
+		defaultPower: 6,
+		counterPwer: 6
     }, 
     {
-      name: "Chomper",
-      picture: 'http://vignette2.wikia.nocookie.net/plantsvszombies/images/a/a3/Chomper1.png/revision/latest?cb=20090521220057',
-      hitPoints: 3.55
+		name: "Chomper",
+		picture: 'http://vignette2.wikia.nocookie.net/plantsvszombies/images/a/a3/Chomper1.png/revision/latest?cb=20090521220057',
+		hitPoints: 100,
+		alive: true, 
+		attackPower: 25,
+		defaultPower: 6,
+		counterPwer: 6
     }, 
     {
-      name: "Kernel-pult",
-      picture: 'http://vignette4.wikia.nocookie.net/plantsvszombies/images/c/c4/Kernel-pult1.png/revision/latest?cb=20090521220358',
-      hitPoints: 1.55
+		name: "Kernel-pult",
+		picture: 'http://vignette4.wikia.nocookie.net/plantsvszombies/images/c/c4/Kernel-pult1.png/revision/latest?cb=20090521220358',
+		hitPoints: 100,
+		alive: true, 
+		attackPower: 25,
+		defaultPower: 6,
+		counterPwer: 6
     }
   ];
 
@@ -31,14 +51,15 @@ var yourChar = "";
 var enemyChar = "";  
 
 $(document).ready(function(){
-		// 1. create a new div element and put it into a variable named character
-		var character = document.createElement('div');
+	// 1. create a new div element and put it into a variable named character
+	var character = document.createElement('div');
 
-		// 2. use the setAttribute function on the character variable and set the id of it to menu
-		character.setAttribute('id', 'menu');
+	// 2. use the setAttribute function on the character variable and set the id of it to menu
+	character.setAttribute('id', 'menu');
 
-		// 3. add the character to the page with the appendChild function
-		document.body.appendChild(character);
+	// 3. add the character to the page with the appendChild function
+	document.body.appendChild(character);
+
 		for (var i = 0; i < characters.length; i++) {
 
 		//4. create a div and store it inside a variable named newCharacterDiv
@@ -58,8 +79,7 @@ $(document).ready(function(){
 		//7. add the newCharacterDiv to the character
 		character.appendChild(newCharacterDiv);
 
-	}
-
+		}
 });
 
  var good = false;
@@ -78,9 +98,10 @@ $(document).ready(function(){
       good = true;
     }
 
-// The player chooses which enemy they will attack by clicking on that enemy's picture.
-
-// Once the player picks an enemy to fight, that enemy is moved to a "defender area" to do battle with the player.
+function fightButton(elem) {
+	characters[enemyChar].hitPoints -= characters[yourChar].attackPower;
+	alert(enemyChar);
+}
 
 // The player will now be able to hit the attack button to fight against that defender.
 
