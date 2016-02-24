@@ -113,8 +113,12 @@ function moveButton(elem) {
 function attackButton(elem) {
 
 	for (var i = 0; i < characters.length; i++) {
-		if ($(elem).parent().attr("id") == "good"){
+		if ($(elem).parent().parent().attr("id") == "good"){
 			console.log(characters[i].hitPoints);
+		} else if ($(elem).parent().parent().attr("id") == "enemy"){
+			console.log(characters[i].hitPoints);
+		} else {
+			alert('your coding is wrong');
 		}
 			// characters[enemyChar].hitPoints -= characters[yourChar].attackPower;
 
