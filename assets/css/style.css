@@ -1,33 +1,42 @@
 body {
-	background-color: grey;
+	background: url(../images/plants-vs-zombies-bg.jpg);
+}
+.subheader{
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
 }
 .wrapper{
-  position: relative;
+  	position: relative;
 	width: 90%;
 	margin: 0 auto;
+}
+.row{
+  	position: relative;
+	width: 850px;
+	margin: 0 auto;
+}
+.choose-hero {
+	text-align: center;
+	z-index: 1;
+	float: left;
+	color: white;
 }
 .character{
 	width:150px;
 	height:150px;
 	float:left;
 }
-#good{
-	border:2px solid black;
-	background-color: white;
-	width: 500px;
-	height: 200px;
+.choose-hero img {
+	position: relative;
+	z-index: -1;
 }
-#enemy{
-	border:2px solid black;
-	background-color: pink;
-	color: black;
-	width: 500px;
-	height: 200px;
-}
-#evil{
-	border:2px solid white;
-	background-color: black;
+.attack-report,
+.counter-report {
+	font-size: 18px;
 	color: white;
-	width: 500px;
-	height: 300px;
+}
+.result {
+	font-size: 18px;
+	color: white;
 }
