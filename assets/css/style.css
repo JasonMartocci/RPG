@@ -1,5 +1,23 @@
 body {
-	background: url(../images/plants-vs-zombies-bg.jpg);
+	background: url(../images/plants-vs-zombies-bg2.jpg);
+	background-repeat: no-repeat;
+}
+/*#KernelPult{
+	float:left;
+}
+#Chomper{
+	float:left;
+}
+#Peashooter{
+	float:left;
+}
+#CherryBomb{
+	float:left;
+}*/
+.clear {
+    width: 100%;
+    clear: both !important;
+    display: inline-block;
 }
 .subheader{
 	font-size: 20px;
@@ -7,25 +25,28 @@ body {
 	color: white;
 }
 .wrapper{
-  	position: relative;
 	width: 90%;
 	margin: 0 auto;
 }
 .row{
-  	position: relative;
-	width: 850px;
-	margin: 0 auto;
+	width: 700px;
+	margin-left: 530px;
+}
+.choose{
+	float: left;
 }
 .choose-hero {
-	text-align: center;
 	z-index: 1;
-	float: left;
 	color: white;
+	text-align: center;
+	margin-bottom: 5px;
+	margin-left: 50px;
 }
-.character{
-	width:150px;
-	height:150px;
-	float:left;
+.characters{
+	position: relative;
+	height: 175px;
+}
+.your-char{
 }
 .choose-hero img {
 	position: relative;
@@ -35,8 +56,10 @@ body {
 .counter-report {
 	font-size: 18px;
 	color: white;
+	background-color: black;
 }
 .result {
 	font-size: 18px;
 	color: white;
+	background-color: black;
 }
