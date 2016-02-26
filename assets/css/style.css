@@ -19,18 +19,21 @@ body {
     clear: both !important;
     display: inline-block;
 }
+.wrapper{
+	width: 700px;
+	margin: 0 auto;
+	padding-left: 50px;
+}
 .subheader{
+	float:left;
+	width: 690px;
 	font-size: 20px;
 	font-weight: bold;
 	color: white;
 }
-.wrapper{
-	width: 90%;
-	margin: 0 auto;
-}
-.row{
+.row{/*
 	width: 700px;
-	margin-left: 530px;
+	margin-left: 530px;*/
 }
 .choose{
 	float: left;
@@ -39,14 +42,32 @@ body {
 	z-index: 1;
 	color: white;
 	text-align: center;
+	width: 150px;
 	margin-bottom: 5px;
-	margin-left: 50px;
+	float: left;
 }
 .characters{
 	position: relative;
 	height: 175px;
 }
+.yourCharacter{
+	margin-top: 100px;
+}
 .your-char{
+	float: left;
+	width: 690px;
+}
+.enemies{
+	float:left;
+	width: 690px;
+}
+.fight-section{
+	float:left;
+	width: 690px;
+}
+.defender{
+	float:left;
+	width: 200px;
 }
 .choose-hero img {
 	position: relative;
